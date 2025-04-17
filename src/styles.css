@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+html, body {
+  color: #fff;              /* make all text white by default */
+  background-color: #000;   /* optional: switch your background to black */
+}
+
+* {
+  color: inherit !important; /* force components/elements to inherit the white color */
+}
+

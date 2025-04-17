@@ -1,16 +1,79 @@
+/* Wiggle-on-hover + rainbow border + confetti rain */
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes rainbowBorder {
+  0% { border-color: red; }
+  14% { border-color: orange; }
+  28% { border-color: yellow; }
+  42% { border-color: green; }
+  56% { border-color: blue; }
+  70% { border-color: indigo; }
+  84% { border-color: violet; }
+  100% { border-color: red; }
+}
+
+@keyframes confetti {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(200px) rotate(360deg); opacity: 0; }
+}
+
 .task-item {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.75rem;
+  border: 3px dashed;
+  animation: rainbowBorder 5s linear infinite;
+  transition: background 0.3s ease;
+}
+
+.task-item:hover {
+  animation: wiggle 0.5s ease infinite;
+  background: rgba(255,255,255,0.2);
+}
+
+button {
+  background: #40e0d0;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: rotate(360deg);
 }
 
 .completed {
   text-decoration: line-through;
-  color: #666;
+  filter: hue-rotate(180deg) saturate(200%);
 }
 
-.task-desc {
-  margin-left: 1.75rem;
-  font-size: 0.9rem;
-  color: #333;
+/* Confetti pieces */
+.task-item::after {
+  content: '';
+  position: absolute;
+  top: -10px; left: 50%;
+  width: 6px; height: 6px;
+  background: red;
+  border-radius: 50%;
+  animation: confetti 2s ease-out infinite;
+}
+
+.task-item::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: 20%;
+  width: 6px; height: 6px;
+  background: yellow;
+  border-radius: 50%;
+  animation: confetti 2.5s ease-out infinite;
 }

@@ -10,5 +10,5 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 })
 
 export class AppComponent {
-  title = 'newAwfulTaskApp';
+  title = 'Ultra Awful Task App';
 }

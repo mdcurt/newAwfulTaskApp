@@ -1,8 +1,26 @@
-app-task-item {
-  display: block;
-  margin-bottom: 0.75rem;
+/* Floating list + spinning background swirl */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
-p {
-  font-style: italic;
-  color: #555;
+
+@keyframes swirlBG {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+:host {
+  display: block;
+  padding: 2rem;
+  background: radial-gradient(circle at top left,
+    #ff0080, #40e0d0, #ff8c00);
+  background-size: 200% 200%;
+  animation: swirlBG 10s ease infinite;
+}
+
+app-task-item {
+  animation: float 3s ease-in-out infinite;
+  margin-bottom: 1rem;
 }
