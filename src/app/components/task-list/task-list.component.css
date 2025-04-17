@@ -1,0 +1,8 @@
+app-task-item {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+p {
+  font-style: italic;
+  color: #555;
+}

@@ -1,0 +1,10 @@
+<app-task-form></app-task-form>
+
+@if (tasks().length > 0) { @for (t of tasks(); track t.id) {
+<app-task-item [task]="t"></app-task-item>
+} } @else {
+<p>
+  Add a task...if you really want to...you don't have to do anything. I don't
+  care.
+</p>
+}
