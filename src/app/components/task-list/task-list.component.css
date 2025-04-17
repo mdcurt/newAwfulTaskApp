@@ -29,3 +29,59 @@ p.nastyText {
   font-size: xx-large;
   color: white;
 }
+
+.thank-you-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* bouncing, glowing text */
+@keyframes pop {
+  0%   { transform: scale(0.5); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.thank-you-text {
+  font-size: 4rem;
+  color: #fff;
+  text-shadow: 0 0 8px #ff4081, 0 0 16px #ff4081;
+  animation: pop 1.5s ease-out forwards;
+}
+
+/* container for confetti pieces */
+.confetti-container {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  overflow: hidden;
+}
+
+/* each confetti piece */
+.confetti-piece {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: randomColor();
+  opacity: 0.9;
+  animation: fall 1.5s linear forwards;
+  transform-origin: center;
+  color: white;
+}
+
+/* generate random positions & delays */
+.confetti-piece:nth-child(n) {
+  left: calc(5% + 90% * var(--i)); /* use inline style for --i=rand() */
+  animation-delay: calc(0.1s * var(--i));
+}
+
+/* falling + rotating */
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}

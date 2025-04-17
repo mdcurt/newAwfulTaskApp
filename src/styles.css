@@ -1,10 +1,5 @@
-/* styles.css */
-
 html, body {
   background-color: #000;
 
-* {
-  color: inherit !important; /* force components/elements to inherit the white color */
-}
 
 }
