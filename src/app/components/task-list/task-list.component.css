@@ -24,3 +24,8 @@ app-task-item {
   animation: float 3s ease-in-out infinite;
   margin-bottom: 1rem;
 }
+
+p.nastyText {
+  font-size: xx-large;
+  color: white;
+}
