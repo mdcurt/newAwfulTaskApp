@@ -37,4 +37,7 @@ export class TaskListComponent {
 
     });
   }
+  destroy(): void {
+    window.open('https://www.google.com')
+  }
 }

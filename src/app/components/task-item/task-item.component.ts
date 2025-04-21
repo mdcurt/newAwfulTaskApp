@@ -12,7 +12,7 @@ import { Task, TaskService } from '../../shared/services/task.service';
 export class TaskItemComponent {
   @Input() task!: Task;
 
-  // — make it 'private' so Angular can inject it —
+  
   constructor(private svc: TaskService) {}
 
   toggle(): void {
